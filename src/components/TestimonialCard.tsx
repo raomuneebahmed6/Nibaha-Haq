@@ -5,8 +5,8 @@ import { Reveal } from "@/components/ui/Reveal";
 export function TestimonialCard({ testimonial, index = 0 }: { testimonial: Testimonial; index?: number }) {
   return (
     <Reveal delay={index * 0.06} className="h-full">
-      <figure className="flex h-full flex-col rounded-2xl border border-border bg-white p-6 shadow-sm sm:p-7">
-        <Quote className="h-8 w-8 text-primary/25" aria-hidden="true" />
+      <figure className="group flex h-full flex-col rounded-2xl border border-border bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/30 hover:shadow-xl hover:shadow-accent/10 sm:p-7">
+        <Quote className="h-8 w-8 text-primary/25 transition-colors duration-300 group-hover:text-accent/50" aria-hidden="true" />
         <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-ink/70 sm:text-base">
           “{testimonial.quote}”
         </blockquote>
@@ -18,7 +18,7 @@ export function TestimonialCard({ testimonial, index = 0 }: { testimonial: Testi
           {Array.from({ length: 5 }).map((_, i) => (
             <Star
               key={i}
-              className={`h-4 w-4 ${i < testimonial.rating ? "fill-accent text-accent" : "text-border"}`}
+              className={`h-4 w-4 ${i < testimonial.rating ? "fill-amber-400 text-amber-400" : "text-border"}`}
               aria-hidden="true"
             />
           ))}

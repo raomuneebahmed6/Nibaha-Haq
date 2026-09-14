@@ -1,10 +1,10 @@
 import { Search, Lightbulb, Rocket, LineChart } from "lucide-react";
 
 export const stats = [
-  { value: "8+", label: "Core digital services" },
-  { value: "50+", label: "Projects delivered" },
-  { value: "12+", label: "Industries served" },
-  { value: "3", label: "Professional training courses" },
+  { value: 8, suffix: "+", label: "Core digital services" },
+  { value: 50, suffix: "+", label: "Projects delivered" },
+  { value: 12, suffix: "+", label: "Industries served" },
+  { value: 3, suffix: "", label: "Professional training courses" },
 ];
 
 export const processSteps = [

@@ -61,8 +61,8 @@ export function Navbar() {
     >
       <Container>
         <nav className="flex h-18 items-center justify-between py-3" aria-label="Main navigation">
-          <Link href="/" className="flex items-center gap-2 text-lg font-bold tracking-tight text-ink">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white">
+          <Link href="/" className="group flex items-center gap-2 text-lg font-bold tracking-tight text-ink">
+            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-dark text-sm font-bold text-white transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
               NH
             </span>
             {siteConfig.shortName}
@@ -94,6 +94,13 @@ export function Navbar() {
                       {link.label}
                       <ChevronDown className={cn("h-3.5 w-3.5 transition-transform", isOpen && "rotate-180")} aria-hidden="true" />
                     </button>
+                    {isActive ? (
+                      <motion.span
+                        layoutId="nav-underline"
+                        className="absolute inset-x-4 -bottom-0.5 h-0.5 rounded-full bg-gradient-to-r from-primary to-accent"
+                        transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                      />
+                    ) : null}
                     <AnimatePresence>
                       {isOpen ? (
                         <motion.div
@@ -126,7 +133,7 @@ export function Navbar() {
               }
 
               return (
-                <li key={link.href}>
+                <li key={link.href} className="relative">
                   <Link
                     href={link.href}
                     className={cn(
@@ -136,6 +143,13 @@ export function Navbar() {
                   >
                     {link.label}
                   </Link>
+                  {isActive ? (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute inset-x-4 -bottom-0.5 h-0.5 rounded-full bg-gradient-to-r from-primary to-accent"
+                      transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                    />
+                  ) : null}
                 </li>
               );
             })}

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/site-config";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/JsonLd";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
 const bodyFont = Inter({
   variable: "--font-body",
@@ -12,9 +13,10 @@ const bodyFont = Inter({
   display: "swap",
 });
 
-const headingFont = Manrope({
+const headingFont = Space_Grotesk({
   variable: "--font-heading",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -77,6 +79,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${bodyFont.variable} ${headingFont.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white text-ink">
+        <ScrollProgress />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-white"

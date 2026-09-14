@@ -10,11 +10,11 @@
   --color-surface-alt: #eef0f7;
   --color-border: #e4e7f0;
 
-  --color-primary: #4338ca;
-  --color-primary-light: #6366f1;
-  --color-primary-dark: #312e81;
-  --color-accent: #f59e0b;
-  --color-accent-dark: #d97706;
+  --color-primary: #1d4ed8;
+  --color-primary-light: #3b82f6;
+  --color-primary-dark: #142e7a;
+  --color-accent: #e11d48;
+  --color-accent-dark: #9f1239;
   --color-teal: #0d9488;
 }
 
@@ -38,7 +38,9 @@
   --color-teal: var(--color-teal);
 
   --animate-fade-up: fade-up 0.6s ease-out both;
-  --animate-marquee: marquee 32s linear infinite;
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 11s ease-in-out infinite;
 
   @keyframes fade-up {
     from {
@@ -57,6 +59,16 @@
     }
     to {
       transform: translateX(-50%);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(-16px, -24px) scale(1.06);
     }
   }
 }
@@ -104,6 +116,18 @@ h6 {
     linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
   background-size: 44px 44px;
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.text-gradient {
+  background: linear-gradient(100deg, var(--color-primary-light), var(--color-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 ::selection {

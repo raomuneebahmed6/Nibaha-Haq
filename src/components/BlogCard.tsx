@@ -12,9 +12,13 @@ export function BlogCard({ post, index = 0 }: { post: BlogPost; index?: number }
 
   return (
     <Reveal delay={index * 0.05} className="h-full">
-      <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-shadow duration-200 hover:shadow-lg">
-        <div className="relative flex h-40 items-center justify-center bg-gradient-to-br from-ink to-primary-dark">
-          <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+      <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10">
+        <div className="relative flex h-40 items-center justify-center overflow-hidden bg-gradient-to-br from-ink to-primary-dark">
+          <div
+            className="pointer-events-none absolute inset-0 scale-100 bg-gradient-to-br from-accent/0 to-accent/0 transition-all duration-500 group-hover:scale-125 group-hover:from-accent/20 group-hover:to-transparent"
+            aria-hidden="true"
+          />
+          <span className="relative rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
             {post.category}
           </span>
         </div>
@@ -29,7 +33,7 @@ export function BlogCard({ post, index = 0 }: { post: BlogPost; index?: number }
               {post.author}
             </span>
           </div>
-          <h3 className="mt-3 text-lg font-semibold text-ink">
+          <h3 className="mt-3 text-lg font-semibold text-ink transition-colors duration-200 group-hover:text-primary">
             <Link href={`/blog/${post.slug}`} className="focus-visible:outline-none">
               <span className="absolute inset-0" aria-hidden="true" />
               {post.title}

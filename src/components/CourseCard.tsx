@@ -8,17 +8,21 @@ export function CourseCard({ course, index = 0 }: { course: Course; index?: numb
 
   return (
     <Reveal delay={index * 0.08} className="h-full">
-      <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-shadow duration-200 hover:shadow-lg">
-        <div className="flex items-center justify-between bg-ink px-6 py-8">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-accent">
+      <div className="group relative flex h-full -translate-y-0 flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10">
+        <div className="relative flex items-center justify-between overflow-hidden bg-ink px-6 py-8">
+          <div
+            className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-accent/0 opacity-0 transition-opacity duration-500 group-hover:from-primary/40 group-hover:via-transparent group-hover:to-accent/30 group-hover:opacity-100"
+            aria-hidden="true"
+          />
+          <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-accent transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
             <Icon className="h-6 w-6" aria-hidden="true" />
           </div>
-          <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white">
+          <span className="relative rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white">
             {course.level}
           </span>
         </div>
         <div className="flex flex-1 flex-col p-6 sm:p-7">
-          <h3 className="text-lg font-semibold text-ink">
+          <h3 className="text-lg font-semibold text-ink transition-colors duration-200 group-hover:text-primary">
             <Link href={`/courses/${course.slug}`} className="focus-visible:outline-none">
               <span className="absolute inset-0" aria-hidden="true" />
               {course.title}

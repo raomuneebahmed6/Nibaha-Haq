@@ -1,6 +1,7 @@
 import { stats } from "@/lib/data/homepage";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { Counter } from "@/components/ui/Counter";
 
 export function StatsSection() {
   return (
@@ -14,7 +15,9 @@ export function StatsSection() {
               className="text-center"
             >
               <dt className="sr-only">{stat.label}</dt>
-              <dd className="text-3xl font-bold text-primary sm:text-4xl">{stat.value}</dd>
+              <dd className="text-3xl font-bold text-gradient sm:text-4xl">
+                <Counter value={stat.value} suffix={stat.suffix} />
+              </dd>
               <p className="mt-2 text-sm text-ink/60">{stat.label}</p>
             </Reveal>
           ))}
